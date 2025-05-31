@@ -1,1 +1,16 @@
-{ "name": "OfficeBox", "short_name": "OfficeBox", "start_url": ".", "display": "standalone" }
+{
+  "name": "OfficeBox",
+  "short_name": "OfficeBox",
+  "start_url": "https://officebox2.netlify.app/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4caf50",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/<твой-юзернейм>/<репозиторий>/main/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
