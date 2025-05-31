@@ -22,10 +22,26 @@
       <button onclick="addTask()">Добавить</button>
     </div>
 
-    <ul id="taskList"></ul>
-
-    <button id="clearBtn" onclick="clearTasks()">Очистить задачи</button>
+   <div class="board">
+  <div class="column" id="todo">
+    <h2>To Do</h2>
+    <div class="task-column"></div>
+    <button onclick="addTask('todo')">+ Добавить</button>
   </div>
+  <div class="column" id="in-progress">
+    <h2>In Progress</h2>
+    <div class="task-column"></div>
+  </div>
+  <div class="column" id="done">
+    <h2>Done</h2>
+    <div class="task-column"></div>
+  </div>
+</div>
+
+<div class="progress">
+  Выполнено: <span id="progressValue">0%</span>
+</div>
+
 
   <script src="script.js"></script>
 </body>
