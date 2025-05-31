@@ -1,67 +1,121 @@
+/* Основные стили */
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #f9f9f9;
-  color: #333;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f9fbff;
+  color: #1f2937;
 }
 
+/* Контейнер */
 .container {
   max-width: 600px;
-  margin: 40px auto;
+  margin: 30px auto;
   padding: 20px;
-  background: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
   text-align: center;
 }
 
-h1 {
+/* Шапка */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
   margin-bottom: 10px;
 }
 
+.logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+}
+
+h1 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+}
+
+/* Подзаголовок */
+.tagline {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+/* Ввод задач */
 .task-input {
-  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 input[type="text"] {
-  padding: 10px;
-  width: 70%;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  flex: 1;
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background-color: #f1f5f9;
+  color: #1f2937;
 }
 
 button {
-  padding: 10px 16px;
-  background: #4caf50;
+  padding: 10px 18px;
+  font-size: 1rem;
+  background-color: #86b4ff;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  margin-left: 8px;
+  transition: background 0.3s ease;
 }
 
 button:hover {
-  background: #45a049;
+  background-color: #6fa4f5;
 }
 
+/* Список задач */
 ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
-  margin-top: 20px;
+  margin: 0;
 }
 
 li {
-  padding: 10px;
-  margin-bottom: 8px;
-  background: #f0f0f0;
-  border-radius: 8px;
+  background-color: #f1f5f9;
+  padding: 12px 16px;
+  margin: 10px 0;
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: background 0.2s ease;
 }
 
 li.completed {
   text-decoration: line-through;
-  color: #888;
+  background-color: #d1d5db;
+  color: #6b7280;
+}
+
+li button {
+  background-color: transparent;
+  color: #ef4444;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+#clearBtn {
+  margin-top: 20px;
+  background-color: #ef4444;
+  color: white;
+}
+
+#clearBtn:hover {
+  background-color: #dc2626;
 }
