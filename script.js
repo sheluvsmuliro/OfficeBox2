@@ -1,28 +1,45 @@
-const taskInput = document.getElementById('taskText');
-const taskList = document.getElementById('taskList');
+document.addEventListener("DOMContentLoaded", () => {
+  const columns = document.querySelectorAll(".task-column");
+  const progressValue = document.getElementById("progressValue");
 
-function addTask() {
-  const text = taskInput.value.trim();
-  if (!text) return;
+  columns.forEach(column => {
+    column.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      const dragging = document.querySelector(".dragging");
+      column.appendChild(dragging);
+      updateProgress();
+    });
+  });
 
-  const li = document.createElement('li');
-  li.textContent = text;
-  li.onclick = () => {
-    li.classList.toggle('completed');
-  };
+  updateProgress(); // инициализация
+});
 
-  const delBtn = document.createElement('button');
-  delBtn.textContent = '✖';
-  delBtn.onclick = (e) => {
-    e.stopPropagation();
-    li.remove();
-  };
+function addTask(columnId = "todo") {
+  const taskText = prompt("Введите текст задачи:");
+  if (!taskText) return;
 
-  li.appendChild(delBtn);
-  taskList.appendChild(li);
-  taskInput.value = '';
+  const task = document.createElement("div");
+  task.className = "task";
+  task.textContent = taskText;
+  task.setAttribute("draggable", "true");
+
+  task.addEventListener("dragstart", () => {
+    task.classList.add("dragging");
+  });
+
+  task.addEventListener("dragend", () => {
+    task.classList.remove("dragging");
+  });
+
+  document.querySelector(`#${columnId} .task-column`).appendChild(task);
+  updateProgress();
 }
 
-function clearTasks() {
-  taskList.innerHTML = '';
+function updateProgress() {
+  const total = document.querySelectorAll(".task").length;
+  const done = document.querySelectorAll("#done .task").length;
+
+  const percent = total === 0 ? 0 : Math.round((done / total) * 100);
+  document.getElementById("progressValue").textContent = `${percent}%`;
 }
+
