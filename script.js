@@ -81,14 +81,26 @@ function updateProgress() {
 
 function addMember() {
   const nameInput = document.getElementById("memberName");
+  const tgInput = document.getElementById("memberTelegram");
+
   const name = nameInput.value.trim();
-  if (!name) return;
+  const telegram = tgInput.value.trim();
+
+  if (!name || !telegram) {
+    alert("Укажите имя и Telegram!");
+    return;
+  }
 
   const member = document.createElement("div");
   member.className = "member";
-  member.textContent = name;
+  member.textContent = `${name} (${telegram})`;
+
+  member.dataset.username = telegram;
 
   document.getElementById("members").appendChild(member);
+
   nameInput.value = "";
+  tgInput.value = "";
 }
+
 
