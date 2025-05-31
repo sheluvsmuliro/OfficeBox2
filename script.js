@@ -43,3 +43,16 @@ function updateProgress() {
   document.getElementById("progressValue").textContent = `${percent}%`;
 }
 
+function addMember() {
+  const nameInput = document.getElementById("memberName");
+  const name = nameInput.value.trim();
+  if (!name) return;
+
+  const member = document.createElement("div");
+  member.className = "member";
+  member.textContent = name;
+
+  document.getElementById("members").appendChild(member);
+  nameInput.value = "";
+}
+
