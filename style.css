@@ -220,3 +220,14 @@ li button {
   width: 60%;
   margin-right: 10px;
 }
+
+#memberTelegram {
+  padding: 8px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  width: 60%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
