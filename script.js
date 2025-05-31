@@ -54,12 +54,30 @@ function addTask(columnId = "todo") {
 
 
 function updateProgress() {
-  const total = document.querySelectorAll(".task").length;
-  const done = document.querySelectorAll("#done .task").length;
-
-  const percent = total === 0 ? 0 : Math.round((done / total) * 100);
+  const allTasks = document.querySelectorAll(".task");
+  const doneTasks = document.querySelectorAll("#done .task");
+  const percent = allTasks.length === 0 ? 0 : Math.round((doneTasks.length / allTasks.length) * 100);
   document.getElementById("progressValue").textContent = `${percent}%`;
+
+  // Индивидуальный прогресс
+  const members = document.querySelectorAll(".member");
+  members.forEach(member => {
+    const name = member.textContent;
+    const tasksForUser = Array.from(allTasks).filter(task =>
+      task.textContent.includes(name)
+    );
+    const doneForUser = Array.from(doneTasks).filter(task =>
+      task.textContent.includes(name)
+    );
+
+    const personalProgress = tasksForUser.length === 0
+      ? "—"
+      : `${Math.round((doneForUser.length / tasksForUser.length) * 100)}%`;
+
+    member.setAttribute("title", `Прогресс: ${personalProgress}`);
+  });
 }
+
 
 function addMember() {
   const nameInput = document.getElementById("memberName");
